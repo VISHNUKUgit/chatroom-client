@@ -6,11 +6,11 @@ const ChatFooter = ({socket}) => {
   const handleSendMessage = (e) => {
     e.preventDefault();
     console.log(socket.id);
-    if (message.trim() && localStorage.getItem('userName')) {
+    if (message.trim() && sessionStorage.getItem(socket.id)) {
         // Emit a 'message' event to the server using the socket
         socket.emit('message', {
           text: message,
-          name: localStorage.getItem('userName'),
+          name: sessionStorage.getItem(socket.id),
           id: `${socket.id}${Math.random()}`,  // Unique message ID
           socketID: socket.id,  // Socket ID of the sender
         });
