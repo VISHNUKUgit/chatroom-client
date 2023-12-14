@@ -21,16 +21,17 @@ const ChatFooter = ({socket}) => {
     
   };
   return (
-    <div className="chat__footer">
+    <div className="chat__footer bg-dark">
       <form className="form" onSubmit={handleSendMessage}>
         <input
           type="text"
           placeholder="Write message"
-          className="message"
+          className="form px-2"
+          style={{outline:'none'}}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
-        <button className="sendBtn">SEND</button>
+        <button className="btn btn-success py-2" style={{borderRadius:"0"}}>SEND</button>
       </form>
     </div>
   );

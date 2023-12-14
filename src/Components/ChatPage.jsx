@@ -9,14 +9,25 @@ const ChatPage = ({ socket }) => {
     
     socket.on('messageResponse', (data) => setMessages([...messages, data]));
   }, [socket, messages]);
+
+  // mobile sreen
+
+const [sS,setScreenSize] = useState(window.innerWidth)
+window.addEventListener('resize', function() {
+    
+    const sW = window.innerWidth;
+    
+    setScreenSize(sW)
+  });
   return (
-    <div className="chat">
-      <ChatBar socket={socket} />
-      <div className="chat__main">
-        <ChatBody messages={messages} socket={socket} />
-        <ChatFooter  socket={socket}/>
-      </div>
-    </div>
+    <div className={sS > 600 ? "chat" : ""}>
+  {sS > 600 && <ChatBar socket={socket} />}
+  <div className="chat__main">
+    <ChatBody messages={messages} socket={socket} />
+    <ChatFooter socket={socket} />
+  </div>
+</div>
+
   );
 };
 

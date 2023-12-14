@@ -12,9 +12,9 @@ const ChatBody = ({ messages,socket }) => {
 
   return (
     <>
-      <header className="chat__mainHeader">
-        <p>Hangout with Colleagues</p>
-        <button className="leaveChat__btn" onClick={handleLeaveChat}>
+      <header className="chat__mainHeader bg-dark">
+        <p className='text-light'>Hangout with Colleagues</p>
+        <button className="leaveChat__btn " onClick={handleLeaveChat}>
           LEAVE CHAT
         </button>
       </header>

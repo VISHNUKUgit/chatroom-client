@@ -13,20 +13,29 @@ const Home = ({ socket }) => {
     navigate('/chat');
     console.log(socket.id);
   };
+  // mobile sreen
+
+const [sS,setScreenSize] = useState(window.innerWidth)
+window.addEventListener('resize', function() {
+    
+    const sW = window.innerWidth;
+    
+    setScreenSize(sW)
+  });
   return (
-    <form className="home__container" onSubmit={handleSubmit}>
-      <h2 className="home__header">Sign in to Open Chat</h2>
-      <label htmlFor="username">Username</label>
+    <form className="bg-dark d-flex flex-column w-100 vh-100 align-items-center justify-content-center" onSubmit={handleSubmit}>
+      <h2 className="text-light border-bottom mb-4">Sign in to Open Chat</h2>
+      <label className='text-light' htmlFor="username">Username</label>
       <input
         type="text"
         minLength={6}
         name="username"
         id="username"
-        className="username__input"
+        className={`form-control ${sS>600?'w-25':'w-75'}`}
         value={userName}
         onChange={(e) => setUserName(e.target.value)}
       />
-      <button className="home__cta">SIGN IN</button>
+      <button className={`btn ${sS>600?'w-25':'w-75'} btn-success my-4`} >SIGN IN</button>
     </form>
   );
 };
