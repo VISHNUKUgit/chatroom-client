@@ -25,14 +25,14 @@ const ChatBody = ({ messages,socket }) => {
         {messages.map((message) =>
           message.name == sessionStorage.getItem(socket.id) ? (
             <div className="message__chats" key={message.id}>
-              <p className="sender__name">You</p>
+              <p className="sender__name text-light">You</p>
               <div className="message__sender">
                 <p>{message.text}</p>
               </div>
             </div>
           ) : (
             <div className="message__chats" key={message.id}>
-              <p>{message.name}</p>
+              <p className='text-light'>{message.name}</p>
               <div className="message__recipient">
                 <p>{message.text}</p>
               </div>
