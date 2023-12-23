@@ -6,7 +6,7 @@ import ChatPage from './Components/ChatPage';
 import socketIO from 'socket.io-client';
 import Home from './Components/Home';
 
-const socket = socketIO.connect('https://chatroom-server-xo1t.onrender.com');
+const socket = socketIO.connect('http://localhost:4000');
 function App() {
   return (
     <BrowserRouter>

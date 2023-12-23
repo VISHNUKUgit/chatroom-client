@@ -8,10 +8,11 @@ const Home = ({ socket }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     sessionStorage.setItem(socket.id, userName);
+    sessionStorage.setItem("id", socket.id);
     //sends the username and socket ID to the Node.js server
     socket.emit('newUser', { userName, socketID: socket.id });
     navigate('/chat');
-    console.log(socket.id);
+    // console.log(socket.id);
   };
   // mobile sreen
 

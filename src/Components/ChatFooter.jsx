@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 
 const ChatFooter = ({socket}) => {
   const [message, setMessage] = useState('');
+  const handleTyping = () =>
+  
+  socket.emit('typing', `${sessionStorage.getItem(socket.id)} is typing...`)
+  setTimeout(()=>socket.emit('typing',""),2000);
 
   const handleSendMessage = (e) => {
     e.preventDefault();
@@ -30,6 +34,7 @@ const ChatFooter = ({socket}) => {
           style={{outline:'none'}}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
+          onKeyDown={handleTyping}
         />
         <button className="btn btn-success py-2" style={{borderRadius:"0"}}>SEND</button>
       </form>
