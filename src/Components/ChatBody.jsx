@@ -25,7 +25,11 @@ const ChatBody = ({ messages,socket,lastMessageRef,typingStatus }) => {
         {messages.map((message) =>
           message.name == sessionStorage.getItem(socket.id) ? (
             <div className="message__chats" key={message.id}>
+<<<<<<< HEAD
               <p className="sender__name text-light ">You</p>
+=======
+              <p className="sender__name text-light">You</p>
+>>>>>>> 814ad9f66a543157c2a0acb1c66ab5f891819dbf
               <div className="message__sender">
                 <p>{message.text}</p>
               </div>
